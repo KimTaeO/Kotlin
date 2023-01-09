@@ -37,4 +37,88 @@
 ### 6. 타입 추론
 
 * 변수나 함수들을 선언할 때나, 연산이 이루어 질때 자료형을 코드에 명시하지 않아도 코틀린이 자동으로 자료형을 추론해주는 기능
-  
+
+### 7. 함수
+
+* 함수 : 특정한 동작을 하거나 원하는 결과값을 연산하는데 사용
+
+```Kotlin
+fun main() {
+    println(add(5, 6, 7))
+}
+
+fun add(a: Int, b: Int, c:Int): Int {
+    return a+b+c
+    //  리턴 발생 시 함수 중간이더라도 함수 종료
+}
+```
+
+* 단일 표현식 함수 : 위와 같이 여러가지 일을 하는 것이 아니라 a, b, c를 단순히 더해서 반환하는 역할과 같이 간단한 기능의 경우 마치 변수에 결과값을 할당하듯 기술할 수 있도록 함
+
+```Kotlin
+fun main() {
+    println(add(5, 6, 7))
+}
+
+fun add(a: Int, b: Int, c: Int) = a + b + c
+```
+
+* 단일 표현식 함수는 반환형의 타입 추론이 가능하므로 반환형을 생략할 수 있다
+> 외부에서 볼 때는 **자료형이 결정된 변수** 라는 개념으로 접근하는 것이 좋다
+
+### 8. 조건문
+
+* if문은 java와 동일, switch문은 when으로 사용
+
+* Any 자료형 : 어떤 자료형이든 상관없이 호환되는 코틀린의 최상위 자료형
+
+```Kotlin
+fun main() {
+    doWhen(12L)
+}
+
+fun dowhen (a:Any) {
+    when(a) {
+        1-> println("정수 1이다")
+        "DiMo" -> println("디모의 코틀린 강좌")	
+        is Long -> println("Long 타입이다")
+        !is String -> println("String 타입이 아니다")
+        else -> println("어떤 조건도 만족하지 않는다")
+    }
+}
+```
+> 실행결과 : Long 타입이다
+
+* when의 조건이 맞을 때 값을 반환하는 표현식으로서의 역할을 하게 하려면 동작 대신 값을 써주면 된다
+
+### 9. 반복문
+
+* 기본적으로 for문은 값을 1을 증가시키며 반복한다
+
+```Kotlin
+fun main() {
+    for(i in 0...9) {
+        print(i)
+    }
+}
+```
+
+* 증가값은 step을 이용하여 변경할 수 있다
+
+```Kotlin
+fun main() {
+    for(i in 0...9 step 3) {
+        print(i)
+    }
+}
+```
+
+* 감소값은 downTo를 사용하면 된다
+
+```Kotlin
+fun main() {
+	for(i in 9 downTo 0){ //1씩 감소하며 반복 
+        print(i)
+    }
+}
+```
