@@ -102,4 +102,8 @@ var map3 = mutableMapOf(Key to Value)
 // Map에 값 추가 및 수정
 map.put(Key, Value) // Key에 해당하는 Value가 있다면 Value가 수정되고, 없다면, 새로운 Key/Value값이 생성됩니다
 
+// Map에 저장된 값 삭제
+map.remove(Key)
 ```
+
+> 코틀린의 기본적인 Collection들은 Immutable로 구현되어 있기 때문에 Immutable Collection에 저장된 값을 추가, 수정, 삭제 등을 할 수 없습니다. 그러므로 ```mutable```접두어를 붙인 Mutable Collection을 사용하여 추가, 수정, 삭제 등의 작업을 수행해야 합니다
