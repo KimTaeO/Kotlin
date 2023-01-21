@@ -41,10 +41,10 @@ var numArray = arrayOf("one", "two", "three")
 
 * 컬렉션은 배열과 같이 여러 개의 자료를 저장하는 자료형이다
 * 배열과 다른 점은 크기가 고정되지 않는 동적 배열이라는 점이다
-* 컬렉션으로는 List, Map, Set등이 있고, 코틀린에서 동적으로 배열을 사용하기 위해서는 ```Mutable```이라는 접두어를 붙여야 한다
+> ❗️ 컬렉션으로는 List, Map, Set등이 있고, 코틀린에서 동적으로 배열을 사용하기 위해서는 ```Mutable```이라는 접두어를 붙여야 한다
 
 ### List
-* 리스트는 저장된 인수에 인덱스를 부여한 컬렉션이며, 중복된 값을 저장할 수 있다
+* List는 저장된 인수에 인덱스를 부여한 컬렉션이며, 중복된 값을 저장할 수 있다
 
 ```Kotlin
 // 리스트 생성
@@ -72,3 +72,34 @@ var emptyList = MutableListOf<String>()
 ```
 
 * ```size```프로퍼티를 사용하여 리스트의 길이를 구할 수 있습니다
+
+### Set
+* Set은 인덱스가 존재하지 않으며, 중복을 허용하지 않습니다 그리고 또한 순서도 없습니다
+```Kotlin
+// Set 생성
+var set1 = mutableSetOf("A", "B")
+var set2 = mutableSetOf<Type>()
+
+// Set에 값 추가
+set1.add("C")
+
+// Set에 저장된 값 사용
+println(set1) // ABC
+
+// Set에 저장된 값 삭제
+set1.remove("B")
+```
+
+### Map
+* Map은 Key/Value쌍으로 저장되는 Collection입니다 Key는 Value를 조회하는데  사용됩니다 Key는 중복될 수 없지만, Value는 중복될 수 있습니다
+
+```Kotlin
+// Map 생성
+var map1 = mutableMapOf<KeyType, ValueType>()
+var map2 = mutableMapOf(Pair(Key, Value))
+var map3 = mutableMapOf(Key to Value)
+
+// Map에 값 추가 및 수정
+map.put(Key, Value) // Key에 해당하는 Value가 있다면 Value가 수정되고, 없다면, 새로운 Key/Value값이 생성됩니다
+
+```
